@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(135deg, #c8d1a4, #a3b18a);
+    min-height:100vh;
+    color:#1b4332;
+    display:flex;
+    flex-direction:column;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+header h1{
+    font-family:'Playfair Display', serif;
+    font-size:42px;
+    color:#163020;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:18px;
+    color:#2d6a4f;
+}
+
+main{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.contenedor{
+    background:rgba(255,255,255,0.65);
+    backdrop-filter: blur(12px);
+    width:100%;
+    max-width:500px;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.perfil{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.perfil img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #588157;
+}
+
+.campo{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:500;
+    color:#163020;
+}
+
+input{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    background:#edf2e1;
+    font-size:15px;
+    color:#163020;
+}
+
+input:focus{
+    box-shadow:0 0 0 3px #95d5b2;
+}
+
+input[type="color"]{
+    height:55px;
+    cursor:pointer;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:#3a5a40;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:500;
+}
+
+button:hover{
+    background:#2d4739;
+    transform:scale(1.02);
+}
+
+#mensaje{
+    margin-top:15px;
+    text-align:center;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#163020;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    header h1{
+        font-size:30px;
+    }
+
+    .contenedor{
+        padding:25px;
+    }
+}
