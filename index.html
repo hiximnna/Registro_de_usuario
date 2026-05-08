@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fuentes elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Registro de Usuario</h1>
+        <p>Crea tu perfil personal</p>
+    </header>
+
+    <main>
+        <section class="contenedor">
+
+            <div class="perfil">
+                <img src="https://via.placeholder.com/160" alt="Imagen de perfil">
+            </div>
+
+            <form id="registroForm">
+
+                <div class="campo">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" required>
+                </div>
+
+                <div class="campo">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" required>
+                </div>
+
+                <div class="campo">
+                    <label for="password">Contraseña</label>
+                    <input
+                        type="password"
+                        id="password"
+                        minlength="8"
+                        placeholder="Mínimo 8 caracteres"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="fecha">Fecha de nacimiento</label>
+                    <input type="date" id="fecha" required>
+                </div>
+
+                <div class="campo">
+                    <label for="color">Color favorito</label>
+                    <input type="color" id="color">
+                </div>
+
+                <div class="campo">
+                    <label for="pais">País</label>
+                    <input list="paises" id="pais" placeholder="Selecciona tu país" required>
+
+                    <datalist id="paises">
+                        <option value="México">
+                        <option value="Argentina">
+                        <option value="Colombia">
+                        <option value="Chile">
+                        <option value="Perú">
+                        <option value="España">
+                        <option value="Estados Unidos">
+                        <option value="Canadá">
+                    </datalist>
+                </div>
+
+                <button type="submit">Registrarse</button>
+
+                <p id="mensaje"></p>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Registro Web | Diseño elegante</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
