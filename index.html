@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Usuario</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,#1a2e16,#3a5a2f,#5b7d48);
+      display:flex;
+      flex-direction:column;
+      color:white;
+    }
+
+    header{
+      width:100%;
+      padding:25px 10%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.1);
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:#8bbf56;
+    }
+
+    main{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 20px 40px;
+    }
+
+    .container{
+      width:100%;
+      max-width:1100px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      background: rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:30px;
+      overflow:hidden;
+      backdrop-filter: blur(18px);
+      box-shadow:0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .left{
+      padding:60px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background: linear-gradient(
+      rgba(26, 46, 22, 0.7),
+      rgba(26, 46, 22, 0.7)
+      ),
+      url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+    }
+
+    .left h1{
+      font-size:42px;
+      margin-bottom:20px;
+      line-height:1.2;
+    }
+
+    .left p{
+      font-size:16px;
+      color:#d6e9c8;
+      line-height:1.8;
+    }
+
+    .right{
+      padding:50px 40px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .perfil{
+      text-align:center;
+      margin-bottom:25px;
+    }
+
+    .perfil img{
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      border:4px solid:#8bbf56;
+      object-fit:cover;
+      box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .title h2{
+      font-size:30px;
+      margin-bottom:5px;
+    }
+
+    .title p{
+      color:#c2d9b0;
+      font-size:14px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .input-box{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .input-box label{
+      font-size:14px;
+      color:#e6f2dc;
+      font-weight:500;
+    }
+
+    .input-box input{
+      padding:14px;
+      border:none;
+      outline:none;
+      border-radius:14px;
+      background:rgba(255,255,255,0.12);
+      color:white;
+      font-size:15px;
+      border:1px solid transparent;
+      transition:0.3s;
+    }
+
+    .input-box input:focus{
+      border:1px solid:#8bbf56;
+      background:rgba(255,255,255,0.18);
+    }
+
+    .input-box input::placeholder{
+      color:#c2d9b0;
+    }
+
+    input[type="color"]{
+      height:55px;
+      padding:5px;
+      cursor:pointer;
+    }
+
+    button{
+      margin-top:10px;
+      padding:15px;
+      border:none;
+      border-radius:14px;
+      background: linear-gradient(135deg,#4a702e,#6b9442);
+      color:white;
+      font-size:17px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      box-shadow:0 8px 20px rgba(74, 112, 46, 0.4);
+    }
+
+    button:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 25px rgba(74, 112, 46, 0.5);
+    }
+
+    .mensaje{
+      display:none;
+      margin-top:18px;
+      text-align:center;
+      background:rgba(107, 148, 66, 0.2);
+      color:#e8f8d5;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid rgba(107, 148, 66, 0.4);
+      font-weight:500;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      font-size:14px;
+      color:#d6e9c8;
+      background:rgba(255,255,255,0.05);
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    @media(max-width:900px){
+
+      .container{
+        grid-template-columns:1fr;
+      }
+
+      .left{
+        display:none;
+      }
+
+      .right{
+        padding:40px 25px;
+      }
+
+      .title h2{
+        font-size:26px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">User<span>Register</span></div>
+</header>
+
+<main>
+
+  <section class="container">
+
+    <div class="left">
+      <h1>Bienvenido a tu nuevo registro digital</h1>
+
+      <p>
+        Crea tu cuenta de manera rápida, segura y moderna.
+        Este formulario cuenta con diseño responsivo,
+        validación de contraseña, selector de color,
+        fecha de nacimiento y sugerencias inteligentes.
+      </p>
+    </div>
+
+    <div class="right">
+
+      <div class="perfil">
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Perfil">
+      </div>
+
+      <div class="title">
+        <h2>Crear Cuenta</h2>
+        <p>Completa el formulario para registrarte</p>
+      </div>
+
+      <form id="registroForm">
+
+        <div class="input-box">
+          <label>Nombre Completo</label>
+          <input type="text" placeholder="Ingresa tu nombre" required>
+        </div>
+
+        <div class="input-box">
+          <label>Correo Electrónico</label>
+          <input type="email" placeholder="ejemplo@gmail.com" required>
+        </div>
+
+        <div class="input-box">
+          <label>Contraseña</label>
+          <input 
+          type="password" 
+          placeholder="Mínimo 8 caracteres"
+          minlength="8"
+          required>
+        </div>
+
+        <div class="input-box">
+          <label>Fecha de Nacimiento</label>
+          <input type="date" required>
+        </div>
+
+        <div class="input-box">
+          <label>Color Favorito</label>
+          <input type="color">
+        </div>
+
+        <div class="input-box">
+          <label>País</label>
+
+          <input 
+          list="paises" 
+          placeholder="Selecciona tu país"
+          required>
+
+          <datalist id="paises">
+            <option value="México">
+            <option value="Argentina">
+            <option value="Chile">
+            <option value="Colombia">
+            <option value="Perú">
+            <option value="España">
+            <option value="Estados Unidos">
+            <option value="Canadá">
+          </datalist>
+
+        </div>
+
+        <button type="submit">
+          Registrarse
+        </button>
+
+        <div class="mensaje" id="mensaje">
+          ✅ Usuario registrado correctamente
+        </div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Registro Profesional | Diseñado por Karla
+</footer>
+
+<script>
+
+const form = document.getElementById("registroForm");
+const mensaje = document.getElementById("mensaje");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+mensaje.style.display = "block";
+
+form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
